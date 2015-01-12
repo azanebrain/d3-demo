@@ -1,0 +1,19 @@
+{
+  "name": "d3demo",
+  "version": "0.0.0",
+  "authors": [
+    "SPARQL City"
+  ],
+  "license": "GPLv3",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.5.3"
+  }
+}
