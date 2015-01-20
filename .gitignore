@@ -1,5 +1,11 @@
 # Ignore the distros
 /dist*/
+.tmp
+
+app/**/*.html
+app/css/
+
+endpoint.txt
 
 ##########################
 ##  __   __   __|  ___  ##
