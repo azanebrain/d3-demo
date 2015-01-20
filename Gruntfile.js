@@ -101,7 +101,7 @@ module.exports = function(grunt) {
         src: ['<%= dist %>/**/*.html'],
         overwrite: true, // overwrite matched source files
         replacements: [{
-          from: "endpoint",
+          from: "//endpoint//",
           to: "<%= configsample.endpoint %>"
         }]
 
