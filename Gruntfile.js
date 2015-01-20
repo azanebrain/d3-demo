@@ -142,12 +142,8 @@ module.exports = function(grunt) {
 			},
 			jade: {
 				files: '<%= app %>/**/*.jade',
-				tasks: ['jade']
+				tasks: ['jade', 'replace:watch']
 			},
-      replace: {
-        files: '<%= app %>/**/*.*',
-        tasks: ['replace:watch']
-      },
 			livereload: {
 				files: ['<%= app %>/**/*.html', '!<%= app %>/bower_components/**', '<%= app %>/js/**/*.js', '<%= app %>/css/**/*.css', '<%= app %>/images/**/*.{jpg,gif,svg,jpeg,png,ico}'],
 				options: {
@@ -199,10 +195,10 @@ module.exports = function(grunt) {
 	grunt.registerTask('compile-jade', ['jade']);
 	grunt.registerTask('compile-sass', ['sass']);
 	grunt.registerTask('bower-install', ['wiredep']);
-	grunt.registerTask('replace-text', ['replace']);
+	grunt.registerTask('replace-text', ['replace:watch']);
 
   // Custom Tasks
-	grunt.registerTask('default', ['compile-jade', 'compile-sass', 'bower-install', 'connect:app', 'watch']);
+	grunt.registerTask('default', ['compile-jade', 'compile-sass', 'replace:watch', 'bower-install', 'connect:app', 'watch']);
 	grunt.registerTask('validate-js', ['jshint']);
 	grunt.registerTask('server-dist', ['connect:dist']);
   // skip JS tests
