@@ -1,8 +1,3 @@
-function exec() {
-  var endpoint = d3.select("#endpoint").property("value")
-  var sparql = d3.select("#sparql").property("value")
-  d3sparql.query(endpoint, sparql, render)
-}
 function render(json) {
   var config = {
     // for d3sparql.graph()
@@ -18,7 +13,4 @@ function render(json) {
     "height": 750,
   }
   d3sparql.forcegraph(json, config)
-}
-function toggle() {
-  d3sparql.toggle()
 }

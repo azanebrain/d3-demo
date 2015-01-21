@@ -22,3 +22,13 @@ var app = (function(document, $) {
 (function() {
 	app.init();
 })();
+
+// Global D3 Functions
+function exec() {
+	var endpoint = d3.select("#endpoint").property("value")
+	var sparql = d3.select("#sparql").property("value")
+	d3sparql.query(endpoint, sparql, render)
+}
+function toggle() {
+	d3sparql.toggle()
+}
