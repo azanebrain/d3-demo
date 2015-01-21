@@ -1,8 +1,13 @@
 doctype html
 html(class="no-js", lang="en")
     include header
-    // build:js js/socialnetwork.js
-    script(src="js/socialnetwork.js")
+    script
+      | var key1 = "",
+      | key2 = "",
+      | label1 = "",
+      | label2 = "";
+    // build:js js/forcegraph.js
+    script(src="js/forcegraph.js")
     // endbuild
     body
       div.row
@@ -25,6 +30,5 @@ html(class="no-js", lang="en")
               | ORDER BY desc(?p) ?o
               | LIMIT 100
           h2 Description
-          p Shows connections within a social network. Influenced by the <a href="http://biohackathon.org/d3sparql/d3sparql-forcegraph.html">D3SPARQL Forcegraph demo</a>
-
+          p Shows connections within a social network. Influenced by the <a href="http://biohackathon.org/d3sparql/d3sparql-forcegraph.html">D3SPARQL Forcegraph demo</a> and the <a href="http://svx.sparqlcity.com:8080/svx.html#/tickitFetch">Fetching & Filtering playground example</a>
       include footer
