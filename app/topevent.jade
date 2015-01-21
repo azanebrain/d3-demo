@@ -1,13 +1,21 @@
 doctype html
 html(class="no-js", lang="en")
     include header
-    // build:js js/socialnetwork.js
-    script(src="js/socialnetwork.js")
+    script
+      //- JS variables to generate the chart
+      | var xaxis_label = "Event",
+      | yaxis_label = "Event Count",
+      | xaxis_var = "event_name",
+      | yaxis_var = "count";
+    // build:js js/bar.js
+    script(src="js/bar.js")
     // endbuild
+    style
+      | .bar:hover { fill: brown; }
     body
       div.row
         div(class="small-12 small-centered medium-10 medium-centered large-8 large-centered columns panel radius")
-          h1 Social Network
+          h1 Top Events
           #query
             form.form-inline
               label SPARQL endpoint:
@@ -18,13 +26,15 @@ html(class="no-js", lang="en")
                 br
                 button.button(type="button" onclick="exec()") RUN
             textarea#sparql(style="min-height:200px")
-              | SELECT ?p ?o
+              | SELECT ?event_name (count(*) as ?count)
               | FROM <tickit>
               | WHERE {
-              | <person2> ?p ?o}
-              | ORDER BY desc(?p) ?o
-              | LIMIT 100
+              | ?event <eventname> ?event_name
+              | }
+              | GROUP BY ?event_name
+              | ORDER BY desc(?count) ?event_name LIMIT 10
+
           h2 Description
-          p Shows connections within a social network. Influenced by the <a href="http://biohackathon.org/d3sparql/d3sparql-forcegraph.html">D3SPARQL Forcegraph demo</a>
+          p Generates a bar chart of the top 10 most common events. Based on the <a href="http://svx.sparqlcity.com:8080/svx.html#/tickitAgg">Aggregation Playground Example</a>
 
       include footer
