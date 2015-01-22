@@ -1,3 +1,7 @@
+*.swp
+*.swo
+*.log
+
 # Ignore the distros
 /dist*/
 .tmp

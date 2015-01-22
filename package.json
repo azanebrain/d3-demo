@@ -9,7 +9,7 @@
   "scripts": {
     "build": "grunt publish",
     "postinstall": "node_modules/.bin/bower install",
-    "serve": "open http://localhost:9000 && grunt",
+    "serve": "grunt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
