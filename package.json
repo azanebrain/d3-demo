@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.com:sparqlcity/d3demo.git"
+    "url": "git@github.com:sparqlcity/d3-demo.git"
   },
   "author": "SPARQLCity",
   "license": "GPLv3",
