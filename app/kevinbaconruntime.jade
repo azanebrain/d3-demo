@@ -1,0 +1,45 @@
+//-
+  Instructions:
+  Upload the datafile (linkedmdb-latest-dump.zip) to the server in the ~/data/movie directory
+  Unzip the dataset
+  unzip ~/data/movie/linkedmdb-latest-dump.zip
+  Load the movie dataset
+  LOAD <file:/home/scl/data/movie/linkedmdb-latest-dump.nt> INTO GRAPH <movie>
+doctype html
+html(class="no-js", lang="en")
+    include header
+    script
+      | var xaxis_var = "date",
+      | yaxis_var = "movieName",
+      | radius_var = "runTime",
+      | xaxis_label = "X",
+      | yaxis_label = "Y";
+    // build:js js/scatterplot.js
+    script(src="js/scatterplot.js")
+    // endbuild
+    body
+      div.row
+        div(class="small-12 small-centered medium-10 medium-centered large-8 large-centered columns panel radius")
+          h1 Scatter
+          #query
+            form.form-inline
+              label SPARQL endpoint:
+              .input-append
+                input#endpoint(value="//endpoint//" type="text")
+                input#showquerytitle(type="checkbox" onclick="toggle()")
+                label(for="showquerytitle") Hide Query
+                br
+                button.button(type="button" onclick="exec()") RUN
+            textarea#sparql(style="min-height:200px")
+              | SELECT ?movieName ?runTime ?date FROM <movie> WHERE {
+              | ?kb    <http://data.linkedmdb.org/resource/movie/actor_name> "Kevin Bacon".
+              | ?movie <http://data.linkedmdb.org/resource/movie/actor> ?kb.
+              | ?movie <http://www.w3.org/2000/01/rdf-schema#label> ?movieName.
+              | ?movie <http://data.linkedmdb.org/resource/movie/runtime> ?runTime.
+              | ?movie <http://purl.org/dc/terms/date> ?date.
+              | }
+
+
+          h2 Description
+          p The runtime of movies that Kevin Bacon has acted in
+      include footer

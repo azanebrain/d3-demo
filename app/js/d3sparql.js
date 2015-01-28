@@ -670,7 +670,7 @@ d3sparql.scatterplot = function(json, config) {
       "distance": 30,  // target distance between linked nodes
       "width": 1000,   // canvas width
       "height": 500,   // canvas height
-      "label": "name", // name of a JSON key to be used as a label text for the node (optional) 
+      "label": "name", // name of a JSON key to be used as a label text for the node (optional)
     }
 
   Synopsis:
@@ -1642,7 +1642,7 @@ d3sparql.treemapzoom = function(json, config) {
 
 /*
   World Map usable with GeoLocation data (i.e. Longitude and Latitude)
- 
+
   Options:
     config = {
       "radius": 5 // circles radius
@@ -1670,7 +1670,7 @@ d3sparql.coordmap = function(json,config) {
     "radius":    config.radius   || 5,
     "color":     config.color    || "#FF3333",
     "topojson":  config.topojson || "world-50m.json"
-  } 
+  }
 
   var projection = d3.geo.equirectangular()
     .scale(153)

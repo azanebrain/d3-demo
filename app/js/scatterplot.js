@@ -21,5 +21,5 @@ function render(json) {
     "margin_y": 40,
   }
   d3sparql.scatterplot(json, config)
-  d3sparql.htmltable(json)
+  // d3sparql.htmltable(json)
 }

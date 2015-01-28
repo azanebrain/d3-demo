@@ -11,6 +11,11 @@ app/css/
 
 config.json
 
+# Only include compressed data sets
+data/*
+!data/*.zip
+!data/*.tar
+
 ##########################
 ##  __   __   __|  ___  ##
 ## |  ) (__) (__| (__/_ ##

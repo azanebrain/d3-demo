@@ -19,9 +19,15 @@ Make a copy of `config.json.sample` named `config.json`
 
 Run `npm install`
 
-# Other Notes:
+## Other Notes
 
 Using the [ZF5](https://github.com/juliancwirko/generator-zf5) yeoman generator
+
+# Resources & Third Party Tools
+
+- D3
+- D3SPARQL
+- Linked Movie Dataset from [datahub](http://datahub.io/dataset/linkedmdb/resource/dd7619f9-cc39-47eb-a72b-5f34cffe1d16) ([Creative Commons Attribution ](http://opendefinition.org/licenses/cc-by/))
 
 # LICENSE
 
