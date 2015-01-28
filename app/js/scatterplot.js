@@ -5,6 +5,8 @@
 * radius_var (string) : The variable for the radius of each circse
 * xaxis_label (string) : The label for the X Axis
 * yaxis_label (string) : The label for the Y Axis
+* min_r (int) : The minimum radius of a node
+* max_r (int) : The maximum radius of a node
 */
 function render(json) {
   var config = {
@@ -13,8 +15,8 @@ function render(json) {
     "var_x": xaxis_var,
     "var_y": yaxis_var,
     "var_r": radius_var,
-    "min_r": 1,
-    "max_r": 20,
+    "min_r": min_r,
+    "max_r": max_r,
     "width": 850,
     "height": 300,
     "margin_x": 80,
