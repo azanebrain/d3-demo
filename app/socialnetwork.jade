@@ -1,34 +1,33 @@
-doctype html
-html(class="no-js", lang="en")
-    include header
-    script
-      | var key1 = "",
-      | key2 = "",
-      | label1 = "",
-      | label2 = "";
-    // build:js js/forcegraph.js
-    script(src="js/forcegraph.js")
-    // endbuild
-    body
-      div.row
-        div(class="small-12 small-centered medium-10 medium-centered large-8 large-centered columns panel radius")
-          h1 Social Network
-          #query
-            form.form-inline
-              label SPARQL endpoint:
-              .input-append
-                input#endpoint(value="//endpoint//" type="text")
-                input#showquerytitle(type="checkbox" onclick="toggle()")
-                label(for="showquerytitle") Hide Query
-                br
-                button.button(type="button" onclick="exec()") RUN
-            textarea#sparql(style="min-height:200px")
-              | SELECT ?p ?o
-              | FROM <tickit>
-              | WHERE {
-              | <person2> ?p ?o}
-              | ORDER BY desc(?p) ?o
-              | LIMIT 100
-          h2 Description
-          p Shows connections within a social network. Influenced by the <a href="http://biohackathon.org/d3sparql/d3sparql-forcegraph.html">D3SPARQL Forcegraph demo</a> and the <a href="http://svx.sparqlcity.com:8080/svx.html#/tickitFetch">Fetching & Filtering playground example</a>
-      include footer
+extends ./layout.jade
+
+block title
+  title Kevin Bacon Runtime
+block scripts
+  script
+    | var key1 = "",
+    | key2 = "",
+    | label1 = "",
+    | label2 = "";
+  // build:js js/forcegraph.js
+  script(src="js/forcegraph.js")
+  // endbuild
+block content
+  h1 Social Network
+  #query
+    form.form-inline
+      label SPARQL endpoint:
+      .input-append
+        input#endpoint(value="//endpoint//" type="text")
+        input#showquerytitle(type="checkbox" onclick="toggle()")
+        label(for="showquerytitle") Hide Query
+        br
+        button.button(type="button" onclick="exec()") RUN
+    textarea#sparql(style="min-height:200px")
+      | SELECT ?p ?o
+      | FROM <tickit>
+      | WHERE {
+      | <person2> ?p ?o}
+      | ORDER BY desc(?p) ?o
+      | LIMIT 100
+  h2 Description
+  p Shows connections within a social network. Influenced by the <a href="http://biohackathon.org/d3sparql/d3sparql-forcegraph.html">D3SPARQL Forcegraph demo</a> and the <a href="http://svx.sparqlcity.com:8080/svx.html#/tickitFetch">Fetching & Filtering playground example</a>

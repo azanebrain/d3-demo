@@ -1,6 +1,9 @@
-doctype html
-html(class="no-js", lang="en")
-    include header
+extends ./layout.jade
+
+block title
+  title Top Event
+
+block scripts
     script
       //- JS variables to generate the chart
       | var xaxis_label = "Event",
@@ -12,29 +15,25 @@ html(class="no-js", lang="en")
     // endbuild
     style
       | .bar:hover { fill: brown; }
-    body
-      div.row
-        div(class="small-12 small-centered medium-10 medium-centered large-8 large-centered columns panel radius")
-          h1 Top Events
-          #query
-            form.form-inline
-              label SPARQL endpoint:
-              .input-append
-                input#endpoint(value="//endpoint//" type="text")
-                input#showquerytitle(type="checkbox" onclick="toggle()")
-                label(for="showquerytitle") Hide Query
-                br
-                button.button(type="button" onclick="exec()") RUN
-            textarea#sparql(style="min-height:200px")
-              | SELECT ?event_name (count(*) as ?count)
-              | FROM <tickit>
-              | WHERE {
-              | ?event <eventname> ?event_name
-              | }
-              | GROUP BY ?event_name
-              | ORDER BY desc(?count) ?event_name LIMIT 10
+block content
+  h1 Top Events
+  #query
+    form.form-inline
+      label SPARQL endpoint:
+      .input-append
+        input#endpoint(value="//endpoint//" type="text")
+        input#showquerytitle(type="checkbox" onclick="toggle()")
+        label(for="showquerytitle") Hide Query
+        br
+        button.button(type="button" onclick="exec()") RUN
+    textarea#sparql(style="min-height:200px")
+      | SELECT ?event_name (count(*) as ?count)
+      | FROM <tickit>
+      | WHERE {
+      | ?event <eventname> ?event_name
+      | }
+      | GROUP BY ?event_name
+      | ORDER BY desc(?count) ?event_name LIMIT 10
 
-          h2 Description
-          p Generates a bar chart of the top 10 most common events. Based on the <a href="http://svx.sparqlcity.com:8080/svx.html#/tickitAgg">Aggregation Playground Example</a>
-
-      include footer
+  h2 Description
+  p Generates a bar chart of the top 10 most common events. Based on the <a href="http://svx.sparqlcity.com:8080/svx.html#/tickitAgg">Aggregation Playground Example</a>
