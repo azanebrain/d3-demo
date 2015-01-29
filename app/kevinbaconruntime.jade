@@ -23,7 +23,7 @@ block scripts
   script(src="js/scatterplot.js")
   // endbuild
 block content
-  h1 Scatter
+  h1 Kevin Bacon Runtime
   #query
     form.form-inline
       label SPARQL endpoint:
@@ -34,7 +34,7 @@ block content
         br
         button.button(type="button" onclick="exec()") RUN
     textarea#sparql(style="min-height:200px")
-      | SELECT ?movieName ?runTime ?date ?filmid ?directorid
+      | SELECT ?movieName ?runTime (SUBSTR(?date, 1, 4) AS ?date) ?filmid ?directorid
       | (count(*) as ?numActors)
       | FROM <movie> WHERE {
       | ?kb    <http://data.linkedmdb.org/resource/movie/actor_name> "Kevin Bacon".
@@ -53,4 +53,5 @@ block content
       | LIMIT 100
 
   h2 Description
-  p The number of actors in movies that Kevin Bacon has acted in over filming date and runtime
+  p The number of actors in movies that Kevin Bacon has acted in over the years and by runtime
+  p Uncomment the 'filter' line to see the same data from 2000 to now.
