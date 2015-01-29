@@ -6,7 +6,9 @@ html(class="no-js", lang="en")
       title SPARQLverse D3
     block scripts
   body
-    div.row
+    block banner
+    include nav
+    div.row#maincontent
       div(class="small-12 small-centered medium-10 medium-centered large-8 large-centered columns panel radius")
         block content
 

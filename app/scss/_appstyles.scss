@@ -1,1 +1,13 @@
 /* all app scss styles here */
+
+.banner {
+  background-color: #000;
+  background-image: url('../images/banner-image.jpg');
+  background-position: center center;
+  background-position-x: center;
+  background-position-y: center;
+  height: 200px;
+}
+#maincontent {
+  margin-top: 40px;
+}

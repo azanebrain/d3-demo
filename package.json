@@ -1,6 +1,6 @@
 {
   "name": "SPARQLverseD3",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Gallery of D3 demos running against SPARQLverse",
   "main": "index.html",
   "engines": {

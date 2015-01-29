@@ -25,9 +25,10 @@ Using the [ZF5](https://github.com/juliancwirko/generator-zf5) yeoman generator
 
 # Resources & Third Party Tools
 
-- D3
-- D3SPARQL
+- [D3](http://d3js.org/)
+- [D3SPARQL](http://biohackathon.org/d3sparql)
 - Linked Movie Dataset from [datahub](http://datahub.io/dataset/linkedmdb/resource/dd7619f9-cc39-47eb-a72b-5f34cffe1d16) ([Creative Commons Attribution ](http://opendefinition.org/licenses/cc-by/))
+- [Font Awesome](http://fontawesome.io)
 
 # LICENSE
 
