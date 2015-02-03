@@ -33,9 +33,6 @@ d3sparql.scatterplotwithnodelabel = function(json, config) {
   var head = json.head.vars
   var data = json.results.bindings
 
-console.debug("Opts:");
-console.dir(config);
-
   var opts = {
     "label_x":  config.label_x  || "label_x",
     "label_y":  config.label_y  || "label_y",
