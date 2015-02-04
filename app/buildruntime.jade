@@ -1,0 +1,44 @@
+//-
+  Instructions:
+  Upload the datafile (linkedmdb-latest-dump.zip) to the server in the ~/data/movie directory
+  Unzip the dataset
+  unzip ~/data/movie/linkedmdb-latest-dump.zip
+  Load the movie dataset
+  LOAD <file:/home/scl/data/movie/linkedmdb-latest-dump.nt> INTO GRAPH <movie>
+
+extends ./layout.jade
+
+block title
+  title Kevin Bacon Runtime
+block scripts
+  script
+    | var xaxis_var = "runTime",
+    | yaxis_var = "date",
+    | radius_var = "numActors",
+    | xaxis_label = "Run Time",
+    | yaxis_label = "Date",
+    | node_label = "movieName",
+    | min_r = 3,
+    | max_r = 40;
+  script(src="js/scatterplotnodelabel.js")
+  script(src="js/builddemo.js")
+block content
+  h1 Build a Runtime
+  p Instructions: Use the UI tools to build a query. Once you are ready, hit 
+    strong visualize 
+    | below.
+  p Description: You will be able to deduce how an actor's career has evolved by seeing the runtime and number of actors in films they have performed in over time.
+  #query
+    form.form-inline
+      label SPARQL endpoint:
+      input#endpoint(value="//endpoint//" type="text")
+      select#actor-dropdown 
+        option Select an actor or refresh the list
+      button.button.small(type="button" onclick="refresh_actorList()") REFRESH
+      br
+      input#showquerytitle(type="checkbox" onclick="toggle()")
+      label(for="showquerytitle") Hide Query
+      br
+      #sparql.panel
+      br
+      button.button(type="button" onclick="visualize()") VISUALIZE

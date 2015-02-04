@@ -32,3 +32,20 @@ function exec() {
 function toggle() {
 	d3sparql.toggle()
 }
+
+// SPARQLverse
+
+/**
+ * Creates a visualization based on dynamic user input, instead of a textarea query
+ */
+function visualize() {
+	// console.debug("Visualizing Query")
+	var endpoint = d3.select("#endpoint").property("value")
+	var sparql = visualizationquery
+	d3sparql.query(endpoint, sparql, render)
+}
+
+// TODO: Create an SVXQuery object
+// var SVXQuery = function(){
+// 	this.query = "";
+// }
