@@ -19,8 +19,11 @@ block scripts
     | yaxis_label = "Date",
     | node_label = "movieName",
     | min_r = 3,
-    | max_r = 40;
+    | max_r = 40,
+    | dropdown_target = "#actor-dropdown",
+    | option_value = "actorName";
   script(src="js/scatterplotnodelabel.js")
+  script(src="js/dropdown.js")
   script(src="js/builddemo.js")
 block content
   h1 Build a Runtime

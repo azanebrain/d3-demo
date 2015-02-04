@@ -28,29 +28,6 @@ function updateQuery() {
     "LIMIT 100";
   document.getElementById('sparql').innerHTML = visualizationquery;
 }
-/**
- * Update the actor list dropdown with the query results
- */
-function populateDropdown(json) {
-  var head = json.head.vars;
-  var data = json.results.bindings;
-
-  var config = {
-    "target": "#actor-dropdown",
-    "actorName": "actorName" //TODO: Do I need this?
-  };
-
-  // console.debug("Populating Dropdown: " + config.target);
-  var select = d3.select(config.target) // Append <option> elements to the target dropdown menu
-    .on("change", updateQuery); //Update the query when the user selects an actor
-    // TODO: Make this an object
-    // .on("change", SVXQuery.update); //Update the query when the user selects an actor
-  var option = select.selectAll("option")
-    .data(data)
-    .enter()
-    .append("option")
-    .text( function(d) { return d["actorName"].value } );
-}
 
 /**
  * Regenerate the list of actors to choose from
