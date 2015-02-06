@@ -35,9 +35,23 @@ block content
     form.form-inline
       label SPARQL endpoint:
       input#endpoint(value="//endpoint//" type="text")
-      select#actor-dropdown 
-        option Select an actor or refresh the list
-      button.button.small(type="button" onclick="refresh_actorList()") REFRESH
+      .row
+        .small-9.columns
+          select#actor-dropdown 
+            option Select an actor or refresh the list
+        .small-3.columns
+          button.button.small(type="button" onclick="refresh_actorList()") REFRESH
+      .row
+        .small-12.columns
+          p Select a date and comparison operator to define a range of movies (can be left blank to include all of the actors' films)
+          input#datefilter(type="text" value="")
+          p Comparison Operator: 
+            input(type="radio" name="datefiltercompare" value=">" id="datefiltergt" checked) 
+            label(for="datefiltergt") Greater Than 
+            input(type="radio" name="datefiltercompare" value="<" id="datefilterlt" ) 
+            label(for="datefilterlt") Less Than
+            //- input(type="radio" name="datefiltercompare" value="=" id="datefiltereq" ) 
+            //- label(for="datefiltereq") Equal To
       br
       input#showquerytitle(type="checkbox" onclick="toggle()")
       label(for="showquerytitle") Hide Query
@@ -45,3 +59,4 @@ block content
       #sparql.panel
       br
       button.button(type="button" onclick="visualize()") VISUALIZE
+      button.button(type="button" onclick="refreshQuery()") REFRESH QUERY
