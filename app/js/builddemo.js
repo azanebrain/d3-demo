@@ -8,9 +8,12 @@ var visualizationquery = "";
 function updateQuery() {
   // console.debug("Updating query vars");
   // Reset the variables based on user input
-  targetActor = this.value; //Update the target actor
+  targetActor = document.getElementById('actor-dropdown').value; //Update the target actor
+  datefilter = document.getElementById('datefilter').value; //The date
+  // datefiltercompare = document.getElementById('datefiltercompare').value;
+  datefiltercompare = document.querySelector('input[name="datefiltercompare"]:checked').value;
   //Rewrite the query with the custom vars
-  visualizationquery = "SELECT ?movieName ?runTime (SUBSTR(?date, 1, 4) AS ?date) ?filmid ?directorid " +
+  visualizationquery = "SELECT ?movieName ?runTime (SUBSTR(?date, 1, 4) AS ?date) ?filmid " +
     "(count(*) as ?numActors) " +
     "FROM <movie> WHERE { " +
     "?targetActor    <http://data.linkedmdb.org/resource/movie/actor_name> \"" + targetActor + "\". " +
@@ -19,14 +22,18 @@ function updateQuery() {
     "?movie <http://www.w3.org/2000/01/rdf-schema#label> ?movieName. " +
     "?movie <http://data.linkedmdb.org/resource/movie/filmid> ?filmid. " +
     "?movie <http://data.linkedmdb.org/resource/movie/runtime> ?runTime. " +
-    "?movie <http://purl.org/dc/terms/date> ?date. " +
-    "?movie <http://data.linkedmdb.org/resource/movie/director> ?director. " +
-    "?director <http://data.linkedmdb.org/resource/movie/director_directorid> ?directorid. " +
-    //"filter ( ?date > \"2000\" ) " +
+    "?movie <http://purl.org/dc/terms/date> ?date. ";
+  // Add a filter if the user has defined one
+  // Note: No need to confirm the value of the comparison operator since Greater Than is selected by default
+  if ( datefilter != '' ) {
+    visualizationquery += "filter ( ?date " + datefiltercompare + " \"" + datefilter + "\" ) ";
+  }
+  visualizationquery +=
     "} " +
-    "GROUP BY ?movieName ?runTime ?date ?filmid ?targetActor ?movie ?directorid " +
+    "GROUP BY ?movieName ?runTime ?date ?filmid ?targetActor ?movie " +
     "LIMIT 100";
-  document.getElementById('sparql').innerHTML = visualizationquery;
+  console.debug("Updated to this query: " + visualizationquery);
+  document.getElementById('sparql').innerHTML = visualizationquery; //Update the query text xok
 }
 
 /**

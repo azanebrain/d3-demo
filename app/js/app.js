@@ -32,6 +32,7 @@ function exec() {
 function toggle() {
 	d3sparql.toggle()
 }
+//render() is unique to each function and can be found in each visualization script
 
 // SPARQLverse
 
@@ -44,6 +45,16 @@ function visualize() {
 	var sparql = visualizationquery
 	d3sparql.query(endpoint, sparql, render)
 }
+
+/**
+ * Refreshes the query string that will be visualized
+ * Used mainly in dynamic query building examples
+ */
+function refreshQuery() {
+	updateQuery();
+}
+
+//updateQuery() is unique to each function and can be found in each visualization script
 
 // TODO: Create an SVXQuery object
 // var SVXQuery = function(){
