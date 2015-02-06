@@ -9,7 +9,7 @@
 extends ./layout.jade
 
 block title
-  title Kevin Bacon Runtime
+  title Build A Runtime
 block scripts
   script
     | var xaxis_var = "runTime",
@@ -38,9 +38,9 @@ block content
       .row
         .small-9.columns
           select#actor-dropdown 
-            option Select an actor or refresh the list
+            option Select an actor or reload the list
         .small-3.columns
-          button.button.small(type="button" onclick="refresh_actorList()") REFRESH
+          button.button.small(type="button" onclick="refresh_actorList()") LOAD
       .row
         .small-12.columns
           p Select a date and comparison operator to define a range of movies (can be left blank to include all of the actors' films)
