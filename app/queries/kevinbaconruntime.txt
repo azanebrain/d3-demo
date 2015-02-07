@@ -1,0 +1,23 @@
+SELECT DISTINCT ?movieName (AVG( xsd:int(?runTimeI) ) as ?runTime) (SUBSTR(?date, 1, 4) AS ?date) ?filmid ?numActors
+FROM <movie>
+WHERE {
+  ?movie <http://www.w3.org/2000/01/rdf-schema#label> ?movieName.
+  ?movie <http://data.linkedmdb.org/resource/movie/runtime> ?runTimeI.
+  ?movie <http://purl.org/dc/terms/date> ?date.
+  ?movie <http://data.linkedmdb.org/resource/movie/filmid> ?filmid.
+  {
+    SELECT DISTINCT ?filmid (count(DISTINCT ?actor) as ?numActors)
+    WHERE {
+      ?kb    <http://data.linkedmdb.org/resource/movie/actor_name> "Kevin Bacon".
+      ?movie <http://data.linkedmdb.org/resource/movie/actor> ?kb.
+      ?movie <http://data.linkedmdb.org/resource/movie/actor> ?actor.
+      ?movie <http://data.linkedmdb.org/resource/movie/filmid> ?filmid.
+    }
+    GROUP BY ?filmid
+    ORDER BY  desc ( ?numActors )
+  }
+  #filter ( ?date > "2000" )
+}
+GROUP BY ?movieName ?date ?filmid ?numActors
+ORDER BY ?movieName
+LIMIT 100
