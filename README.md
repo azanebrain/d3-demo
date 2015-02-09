@@ -4,7 +4,7 @@ This project explores using [D3 JS](http://d3js.org) to visualize SPARQL queries
 
 # Use
 
-Download the most recent release, or clone this repo and run with grunt:
+Download the most [recent release](https://github.com/sparqlcity/d3-demo/releases), or clone this repo and run with grunt:
 
 ```
 npm install
@@ -17,32 +17,44 @@ Build a production ready package to deploy to a server with `npm run build`
 
 Make a copy of `config.json.sample` named `config.json`
 
+Replace the endpoint definition from 'http://svx.sparqlcity.com:8080/runQuery.html' to your SPARQLverse installation's endpoint target.
+
 Run `npm install`
 
-## Load the movie dataset
+If you need help installing and setting up the NodeJS Package Manager, take a look at the [installation instructions](https://docs.npmjs.com/getting-started/installing-node)
 
-Upload the datafile (linkedmdb-latest-dump.zip) to the server in the ~/data/movie directory
-Unzip the dataset
-unzip ~/data/movie/linkedmdb-latest-dump.zip
-Load the movie dataset
-LOAD <file:/home/scl/data/movie/linkedmdb-latest-dump.nt> INTO GRAPH <movie>
+## Loading datasets
+
+By default, your SPARQLverse installation will load the Tickit dataset. This works for a few of the demos, but not all of them. This section outlines the different datasets included in this repo and how to load them into SPARQLverse
+
+Note that each example assumes the user of the system is 'scl', and that the data files can be uploaded to '~/data'
+
+### Linked Movie Dataset
+
+- Upload the datafile (linkedmdb-latest-dump.zip) to the server running sparqlverse in the ~/data/movie directory
+- Unzip the dataset: `unzip data/movie/linkedmdb-latest-dump.zip`
+- Load the movie dataset in SPARQLverse: `LOAD <file:/home/scl/data/movie/linkedmdb-latest-dump.nt> INTO GRAPH <movie>`
 
 # File structure
 
-Views
-Includes
-Queries
-
-## Other Notes
-
-Using the [ZF5](https://github.com/juliancwirko/generator-zf5) yeoman generator
+├── app: The core files that make up the demo site
+|   ├── fonts: Unique font files
+|   ├── images: Image files
+|   ├── includes: Reusable blocks of HTML
+|   ├── js: JavaScript files
+|   ├── queries: The demo queries
+|   ├── scss: CSS files (sass syntax)
+|   └── views: The unique pages of the demo
+├── data: Data sets for the demos (compressed)
+└── dist: The compiled demo site
 
 # Resources & Third Party Tools
 
 - [D3](http://d3js.org/)
 - [D3SPARQL](http://biohackathon.org/d3sparql)
-- Linked Movie Dataset from [datahub](http://datahub.io/dataset/linkedmdb/resource/dd7619f9-cc39-47eb-a72b-5f34cffe1d16) ([Creative Commons Attribution ](http://opendefinition.org/licenses/cc-by/))
 - [Font Awesome](http://fontawesome.io)
+- Linked Movie Dataset from [datahub](http://datahub.io/dataset/linkedmdb/resource/dd7619f9-cc39-47eb-a72b-5f34cffe1d16) ([Creative Commons Attribution ](http://opendefinition.org/licenses/cc-by/))
+- [ZF5](https://github.com/juliancwirko/generator-zf5) yeoman generator
 
 # LICENSE
 
