@@ -1,4 +1,4 @@
-extends ./layout.jade
+extends ../includes/layout.jade
 
 block title
   title Social Network
@@ -24,6 +24,7 @@ block content
         br
         button.button(type="button" onclick="exec()") RUN
     textarea#sparql(style="min-height:200px")
+      //- TODO: make an rq file
       | SELECT ?p ?o
       | FROM <tickit>
       | WHERE {
