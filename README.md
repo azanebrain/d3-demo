@@ -4,7 +4,9 @@ This project explores using [D3 JS](http://d3js.org) to visualize SPARQL queries
 
 # Use
 
-Download the most [recent release](https://github.com/sparqlcity/d3-demo/releases), or clone this repo and run with grunt:
+Download the most [recent release](https://github.com/sparqlcity/d3-demo/releases) to run on your SPARQLverse installation. The required datasets can be found in the `data` directory
+
+Alternatively: clone this repo and run locally with [grunt](http://gruntjs.com/):
 
 ```
 npm install
@@ -17,7 +19,7 @@ Build a production ready package to deploy to a server with `npm run build`
 
 Make a copy of `config.json.sample` named `config.json`
 
-Replace the endpoint definition from 'http://svx.sparqlcity.com:8080/runQuery.html' to your SPARQLverse installation's endpoint target.
+Replace the endpoint definition from 'http://svx.sparqlcity.com:8080/runQuery.html' to your SPARQLverse installation's endpoint target
 
 Run `npm install`
 

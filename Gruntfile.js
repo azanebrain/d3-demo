@@ -130,6 +130,16 @@ module.exports = function(grunt) {
           cwd:'<%= tmp %>/fonts',
           src: '**/*',
           dest: '<%= dist %>/fonts/'
+        }, {
+					expand: true,
+          cwd:'data',
+          src: '**/*.zip',
+          dest: '<%= dist %>/data/'
+        }, {
+					expand: true,
+          cwd:'./',
+          src: 'README.md',
+          dest: '<%= dist %>/'
         }]
       },
 			dist: { //Copy the assets to the dist directory to work in development
