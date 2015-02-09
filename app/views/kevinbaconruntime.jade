@@ -1,12 +1,4 @@
-//-
-  Instructions:
-  Upload the datafile (linkedmdb-latest-dump.zip) to the server in the ~/data/movie directory
-  Unzip the dataset
-  unzip ~/data/movie/linkedmdb-latest-dump.zip
-  Load the movie dataset
-  LOAD <file:/home/scl/data/movie/linkedmdb-latest-dump.nt> INTO GRAPH <movie>
-
-extends ./layout.jade
+extends ../includes/layout.jade
 
 block title
   title Kevin Bacon Runtime
@@ -35,7 +27,7 @@ block content
         br
         button.button(type="button" onclick="exec()") RUN
     textarea#sparql(style="min-height:200px")
-      include ./queries/kevinbaconruntime.txt
+      include ../queries/kevinbaconruntime.rq
 
   h2 Description
   p The number of actors in movies that Kevin Bacon has acted in over the years and by runtime

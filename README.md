@@ -19,6 +19,20 @@ Make a copy of `config.json.sample` named `config.json`
 
 Run `npm install`
 
+## Load the movie dataset
+
+Upload the datafile (linkedmdb-latest-dump.zip) to the server in the ~/data/movie directory
+Unzip the dataset
+unzip ~/data/movie/linkedmdb-latest-dump.zip
+Load the movie dataset
+LOAD <file:/home/scl/data/movie/linkedmdb-latest-dump.nt> INTO GRAPH <movie>
+
+# File structure
+
+Views
+Includes
+Queries
+
 ## Other Notes
 
 Using the [ZF5](https://github.com/juliancwirko/generator-zf5) yeoman generator

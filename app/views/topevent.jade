@@ -1,4 +1,4 @@
-extends ./layout.jade
+extends ../includes/layout.jade
 
 block title
   title Top Event
@@ -10,9 +10,7 @@ block scripts
       | yaxis_label = "Event Count",
       | xaxis_var = "event_name",
       | yaxis_var = "count";
-    // build:js js/bar.js
     script(src="js/bar.js")
-    // endbuild
     style
       | .bar:hover { fill: brown; }
 block content
@@ -27,6 +25,7 @@ block content
         br
         button.button(type="button" onclick="exec()") RUN
     textarea#sparql(style="min-height:200px")
+      //- TODO: make an rq file
       | SELECT ?event_name (count(*) as ?count)
       | FROM <tickit>
       | WHERE {
