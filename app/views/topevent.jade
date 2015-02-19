@@ -25,14 +25,6 @@ block content
         br
         button.button(type="button" onclick="exec()") RUN
     textarea#sparql(style="min-height:200px")
-      //- TODO: make an rq file
-      | SELECT ?event_name (count(*) as ?count)
-      | FROM <tickit>
-      | WHERE {
-      | ?event <eventname> ?event_name
-      | }
-      | GROUP BY ?event_name
-      | ORDER BY desc(?count) ?event_name LIMIT 10
-
+      include ../queries/topevent.rq
   h2 Description
   p Generates a bar chart of the top 10 most common events. Based on the <a href="http://svx.sparqlcity.com:8080/svx.html#/tickitAgg">Aggregation Playground Example</a>

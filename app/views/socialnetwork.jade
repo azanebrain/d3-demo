@@ -24,12 +24,6 @@ block content
         br
         button.button(type="button" onclick="exec()") RUN
     textarea#sparql(style="min-height:200px")
-      //- TODO: make an rq file
-      | SELECT ?p ?o
-      | FROM <tickit>
-      | WHERE {
-      | <person2> ?p ?o}
-      | ORDER BY desc(?p) ?o
-      | LIMIT 100
+      include ../queries/socialnetwork.rq
   h2 Description
   p Shows connections within a social network. Influenced by the <a href="http://biohackathon.org/d3sparql/d3sparql-forcegraph.html">D3SPARQL Forcegraph demo</a> and the <a href="http://svx.sparqlcity.com:8080/svx.html#/tickitFetch">Fetching & Filtering playground example</a>
