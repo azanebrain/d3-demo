@@ -237,30 +237,30 @@ module.exports = function(grunt) {
       }
     },
 
-		watch: {
-			grunt: {
-				files: ['Gruntfile.js'],
-				tasks: ['sass']
-			},
-			sass: {
-				files: '<%= app %>/scss/**/*.scss',
-				tasks: ['sass']
-			},
-			jade: {
-				files: ['<%= app %>/views/**/*.jade', '<%= app %>/includes/**/*.jade'],
-				tasks: ['jade:dist', 'replace:watch']
-			},
-			js: {
-				files: '<%= app %>/js/**/*.js',
-				tasks: ['jade', 'replace:watch']
-			},
-			livereload: {
-				files: '<%= dist %>/**/*',
-				options: {
-					livereload: true
-				}
-			}
-		},
+    watch: {
+      grunt: {
+        files: ['Gruntfile.js'],
+        tasks: ['sass:dist', 'jade:dist', 'copy:dist']
+      },
+      sass: {
+        files: '<%= app %>/scss/**/*.scss',
+        tasks: ['sass']
+      },
+      jade: {
+        files: ['<%= app %>/views/**/*.jade', '<%= app %>/includes/**/*.jade'],
+        tasks: ['jade:dist', 'replace:watch']
+      },
+      js: {
+        files: '<%= app %>/js/**/*.js',
+        tasks: ['copy:dist', 'replace:watch']
+      },
+      livereload: {
+        files: '<%= dist %>/**/*',
+        options: {
+          livereload: true
+        }
+      }
+    },
 
 		connect: {
 			app: {
