@@ -248,7 +248,7 @@ module.exports = function(grunt) {
 			},
 			jade: {
 				files: ['<%= app %>/views/**/*.jade', '<%= app %>/includes/**/*.jade'],
-				tasks: ['jade', 'replace:watch']
+				tasks: ['jade:dist', 'replace:watch']
 			},
 			js: {
 				files: '<%= app %>/js/**/*.js',
