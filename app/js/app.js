@@ -54,9 +54,19 @@ function refreshQuery() {
 	updateQuery();
 }
 
+/**
+ * Unhides an element
+ * @param target (string) [required] : The ID of the target div to unhide
+ */
+function unhide(target) {
+	d3.select('#' + target).classed('hidden', false);
+}
+
 //updateQuery() is unique to each function and can be found in each visualization script
 
 // TODO: Create an SVXQuery object
 // var SVXQuery = function(){
 // 	this.query = "";
+//  this.data
 // }
+var globaldata = "";

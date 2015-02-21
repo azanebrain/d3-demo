@@ -13,4 +13,9 @@ html(class="no-js", lang="en")
         block content
     div.row#graph
       div(class="small-12 columns")
+    .row.hidden#filters
+      .small-10.small-centered.columns.panel.radius
+        h2 Filters
+        block graphmods
+          //- Modifications to the graph, such as a date filter
     include footer

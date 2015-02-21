@@ -32,3 +32,14 @@ block content
   h2 Description
   p The number of actors in movies that Kevin Bacon has acted in over the years and by runtime
   p Uncomment the 'filter' line to see the same data from 2000 to now.
+
+block graphmods
+  p Date Filter: Remove films made before a specific date
+  .row
+    .small-9.columns
+      input#datefilter(type="text" value="1990")
+    .small-3.columns
+      button.button.small(type="button" onclick="FilterDate.scatterplot()") Filter Date
+
+block scripts_footer
+  script(src="js/filters.js")

@@ -25,9 +25,14 @@ function render(json) {
   }
   // d3sparql.scatterplot(json, config)
   d3sparql.scatterplotwithnodelabel(json, config)
+
+  // Apply the data to
+  globaldata = json.results.bindings;
+  // Remove the hidden class from the filters interface
+  unhide('filters');
+
   // d3sparql.htmltable(json)
 }
-
 
 d3sparql.scatterplotwithnodelabel = function(json, config) {
   var head = json.head.vars
