@@ -9,8 +9,13 @@ var FilterDate = new function() {
   var self = this;
 
   // Set the datefilter variabl so it isn't rechecked for every node
-  self.getDateFilter = function(){
+  self.setDateFilter = function(){
     datefilter = d3.select("#datefilter").property("value");
+  }
+
+  // Update the text value of the date filter
+  self.updateDateFilterText = function(val){
+    d3.select("#datefilterval").text( val );
   }
   /**
    * Make a comparison and return an attribute value
@@ -31,8 +36,8 @@ var FilterDate = new function() {
   }
 
   // Filter date for a scatterplot
-  self.scatterplot= function () {
-    self.getDateFilter(); //Update the date filter value in case it has been changed
+  self.scatterplotMin = function () {
+    self.setDateFilter(); //Update the date filter value in case it has been changed
     // Iterate through the nodes and hide those that fail the filter test
     var nodeset = d3.select(graphlocation).selectAll("svg").data(globaldata);
     nodeset.selectAll("g.nodeset")
@@ -40,7 +45,6 @@ var FilterDate = new function() {
   }
 
   // Initialize other variables
-  self.getDateFilter();
-  console.debug('LOADED: datefilter: ' + datefilter)
+  self.setDateFilter();
 
 };

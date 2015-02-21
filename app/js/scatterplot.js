@@ -30,6 +30,12 @@ function render(json) {
   globaldata = json.results.bindings;
   // Remove the hidden class from the filters interface
   unhide('filters');
+  // Set filter values
+  var daterange = document.getElementById("datefilter");
+  var data = json.results.bindings;
+  daterange.max = d3.max(data, function(d) { return d.date.value; });
+  daterange.min = d3.min(data, function(d) { return d.date.value; });
+  FilterDate.setDateFilter( daterange.defaultValue );
 
   // d3sparql.htmltable(json)
 }
