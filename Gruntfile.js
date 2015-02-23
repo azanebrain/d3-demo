@@ -15,18 +15,24 @@ module.exports = function(grunt) {
 		sass: {
 			options: {
 				includePaths: ['<%= app %>/bower_components/foundation/scss'],
-				outputStyle: 'extended',
-        sourceMap: true,
         indentedSyntax: true
 			},
 			dist: {
+        options: {
+          outputStyle: 'extended',
+          sourceMap: true
+        },
 				files: {
           '<%= dist %>/css/app.css': '<%= app %>/scss/app.sass'
 				}
 			},
       publish: {
+        options: {
+          outputStyle: 'compressed',
+          sourceMap: false
+        },
 				files: {
-          '<%= tmp %>/css/app.css': '<%= app %>/scss/app.sass'
+          '<%= dist %>/css/app.css': '<%= app %>/scss/app.sass'
 				}
 			}
 		},
@@ -75,9 +81,12 @@ module.exports = function(grunt) {
 		},
 
 		clean: {
-			dist: {
-				src: ['<%= dist %>/*']
-			},
+      dist: {
+        src: ['<%= dist %>/*']
+      },
+      tmp: {
+        src: ['<%= tmp %>/*']
+      },
 		},
 		copy: {
       views: { // Copy the views to the temp directory
@@ -120,12 +129,12 @@ module.exports = function(grunt) {
         }, {
 					expand: true,
           cwd:'<%= tmp %>/js',
-          src: '**/*',
+          src: ['**/*', '!*.map'],
           dest: '<%= dist %>/js/'
         }, {
 					expand: true,
           cwd:'<%= tmp %>/css',
-          src: '**/*',
+          src: ['**/*.min.css', '!*.map'],
           dest: '<%= dist %>/css/'
         }, {
 					expand: true,
@@ -304,8 +313,6 @@ module.exports = function(grunt) {
 
   // Grunt Tasks
   grunt.loadNpmTasks('grunt-text-replace');
-	grunt.registerTask('compile-jade', ['jade']);
-	grunt.registerTask('compile-sass', ['sass']);
 	grunt.registerTask('bower-install', ['wiredep']);
 	grunt.registerTask('replace-text', ['replace:watch']);
 
@@ -314,6 +321,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('validate-js', ['jshint']);
 	grunt.registerTask('server-dist', ['connect:dist']);
   // skip JS tests  'validate-js',
-	grunt.registerTask('publish', ['clean:dist', 'sass:publish', 'copy:tmp', 'copy:views', 'jadeUsemin:publish', 'jade:publish', 'copy:publish', 'newer:imagemin', 'concat', 'cssmin', 'replace:build', 'uglify', 'usemin']);
+	grunt.registerTask('publish', ['clean:dist', 'clean:tmp', 'sass:publish', 'copy:tmp', 'copy:views', 'jadeUsemin:publish', 'jade:publish', 'copy:publish', 'newer:imagemin', 'concat', 'cssmin', 'replace:build', 'uglify', 'usemin']);
 
 };
