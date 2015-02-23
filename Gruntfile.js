@@ -15,16 +15,18 @@ module.exports = function(grunt) {
 		sass: {
 			options: {
 				includePaths: ['<%= app %>/bower_components/foundation/scss'],
-				outputStyle: 'extended'
+				outputStyle: 'extended',
+        sourceMap: true,
+        indentedSyntax: true
 			},
 			dist: {
 				files: {
-          '<%= dist %>/css/app.css': '<%= app %>/scss/app.scss'
+          '<%= dist %>/css/app.css': '<%= app %>/scss/app.sass'
 				}
 			},
       publish: {
 				files: {
-          '<%= tmp %>/css/app.css': '<%= app %>/scss/app.scss'
+          '<%= tmp %>/css/app.css': '<%= app %>/scss/app.sass'
 				}
 			}
 		},
@@ -243,7 +245,7 @@ module.exports = function(grunt) {
         tasks: ['sass:dist', 'jade:dist', 'copy:dist']
       },
       sass: {
-        files: '<%= app %>/scss/**/*.scss',
+        files: ['<%= app %>/scss/**/*.scss', '<%= app %>/scss/**/*.sass'],
         tasks: ['sass']
       },
       jade: {
