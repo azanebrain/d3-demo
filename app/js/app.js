@@ -73,5 +73,7 @@ var SVXQuery = new function(){
 	that.query = "";
 	// The returnset to be visualized
 	that.data = "";
+	// Target div for the visualization
+	// Currently unused as the graphlocation is set in d3sparql.js
+	// that.location = "#graph";
 }
-var globaldata = "";
