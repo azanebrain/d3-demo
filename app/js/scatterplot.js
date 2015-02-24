@@ -27,14 +27,13 @@ function render(json) {
   d3sparql.scatterplotwithnodelabel(json, config)
 
   // Apply the data to
-  globaldata = json.results.bindings;
+  SVXQuery.data = json.results.bindings;
   // Remove the hidden class from the filters interface
   unhide('filters');
   // Set filter values
   var daterange = document.getElementById("datefilter");
-  var data = json.results.bindings;
-  daterange.max = d3.max(data, function(d) { return d.date.value; });
-  daterange.min = d3.min(data, function(d) { return d.date.value; });
+  daterange.max = d3.max(SVXQuery.data, function(d) { return d.date.value; });
+  daterange.min = d3.min(SVXQuery.data, function(d) { return d.date.value; });
   FilterDate.setDateFilter( daterange.defaultValue );
 
   // d3sparql.htmltable(json)
@@ -111,7 +110,6 @@ d3sparql.scatterplotwithnodelabel = function(json, config) {
     .attr("x", 0 - (opts.height / 2))
     .attr("y", 0 - (opts.margin_x - 20))
 
-  // default CSS/SVG
   ax.attr({
     "stroke": "black",
     "fill": "none",
@@ -126,7 +124,6 @@ d3sparql.scatterplotwithnodelabel = function(json, config) {
     "fill": "lightblue",
     "opacity": 0.5,
   })
-  //svg.selectAll(".label")
   svg.selectAll("text").attr({
     "stroke": "none",
     "fill": "black",

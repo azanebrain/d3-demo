@@ -64,9 +64,14 @@ function unhide(target) {
 
 //updateQuery() is unique to each function and can be found in each visualization script
 
-// TODO: Create an SVXQuery object
-// var SVXQuery = function(){
-// 	this.query = "";
-//  this.data
-// }
+/**
+ * This object stores information about the current query and dataset
+ */
+var SVXQuery = new function(){
+	var that = this;
+	// The query to be sent to the system
+	that.query = "";
+	// The returnset to be visualized
+	that.data = "";
+}
 var globaldata = "";
