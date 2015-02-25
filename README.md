@@ -40,14 +40,23 @@ Note that each example assumes the user of the system is 'scl', and that the dat
 # File structure
 
 ├── app: The core files that make up the demo site
+
 |   ├── fonts: Unique font files
+
 |   ├── images: Image files
+
 |   ├── includes: Reusable blocks of HTML
+
 |   ├── js: JavaScript files
+
 |   ├── queries: The demo queries
+
 |   ├── scss: CSS files (sass syntax)
+
 |   └── views: The unique pages of the demo
+
 ├── data: Data sets for the demos (compressed)
+
 └── dist: The compiled demo site
 
 # Resources & Third Party Tools
@@ -55,7 +64,7 @@ Note that each example assumes the user of the system is 'scl', and that the dat
 - [D3](http://d3js.org/)
 - [D3SPARQL](http://biohackathon.org/d3sparql)
 - [Font Awesome](http://fontawesome.io)
-- Linked Movie Dataset from [datahub](http://datahub.io/dataset/linkedmdb/resource/dd7619f9-cc39-47eb-a72b-5f34cffe1d16) ([Creative Commons Attribution ](http://opendefinition.org/licenses/cc-by/))
+- Linked Movie Dataset from [datahub](http://datahub.io/dataset/linkedmdb/resource/dd7619f9-cc39-47eb-a72b-5f34cffe1d16) / [data.linkedmdb.org](data.linkedmdb.org) ([Creative Commons Attribution ](http://opendefinition.org/licenses/cc-by/))
 - [ZF5](https://github.com/juliancwirko/generator-zf5) yeoman generator
 
 # LICENSE
