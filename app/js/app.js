@@ -69,6 +69,16 @@ function unhide(target) {
  */
 var SVXQuery = new function(){
 	var that = this;
+	// The endpoint
+	that.endpoint = d3.select("#endpoint").property("value");
+	// Set the endpoint to the passed value, or to the value of the endpoint input
+	that.setEndpoint = function (endpoint) {
+		if ( endpoint ) {
+			that.endpoint = endpoint;
+		} else {
+			that.endpoint = d3.select("#endpoint").property("value");
+		}
+	}
 	// The query to be sent to the system
 	that.query = "";
 	// The returnset to be visualized
