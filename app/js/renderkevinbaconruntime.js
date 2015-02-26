@@ -67,5 +67,12 @@ function visualizeActorsInMovie(movieTitle) {
 function renderActorsInMovie(json) {
   // Just a basic ugly table
   // d3sparql.htmltable(json);
-
+  var config = {
+    "key1": '',
+    "key2": 'actorName',
+    "label": '',
+    "label": '',
+  };
+  console.warn('only picking up the last 2 actors... or ignoring the first 20');
+  svx.d3sparql.forcegraph(json, config, 'target');
 }

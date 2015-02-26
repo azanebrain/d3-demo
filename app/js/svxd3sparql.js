@@ -14,6 +14,7 @@ var svx = {
 }
 
 svx.d3sparql.forcegraph = function (json, config, target) {
+  console.dir(json.results.bindings)
   var graph = d3sparql.graph(json, config);
 
   var opts = {
@@ -50,13 +51,13 @@ svx.d3sparql.forcegraph = function (json, config, target) {
     .start()
   force.on("tick", function() {
     link.attr("x1", function(d) {return d.source.x})
-        .attr("y1", function(d) {return d.source.y})
+        .attr("y1", function(d) {return d.source.y - 400 })
         .attr("x2", function(d) {return d.target.x})
-        .attr("y2", function(d) {return d.target.y})
+        .attr("y2", function(d) {return d.target.y - 400 })
     text.attr("x", function(d) {return d.x})
-        .attr("y", function(d) {return d.y})
+        .attr("y", function(d) {return d.y - 400 })
     circle.attr("cx", function(d) {return d.x})
-          .attr("cy", function(d) {return d.y})
+          .attr("cy", function(d) {return d.y - 400 })
   })
   node.call(force.drag)
 
