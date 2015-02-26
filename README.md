@@ -38,26 +38,18 @@ Note that each example assumes the user of the system is 'scl', and that the dat
 - Load the movie dataset in SPARQLverse: `LOAD <file:/home/scl/data/movie/linkedmdb-latest-dump.nt> INTO GRAPH <movie>`
 
 # File structure
-
+```
 ├── app: The core files that make up the demo site
-
 |   ├── fonts: Unique font files
-
 |   ├── images: Image files
-
 |   ├── includes: Reusable blocks of HTML
-
 |   ├── js: JavaScript files
-
 |   ├── queries: The demo queries
-
 |   ├── scss: CSS files (sass syntax)
-
 |   └── views: The unique pages of the demo
-
 ├── data: Data sets for the demos (compressed)
-
 └── dist: The compiled demo site
+```
 
 # Resources & Third Party Tools
 
